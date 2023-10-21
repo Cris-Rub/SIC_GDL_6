@@ -24,4 +24,5 @@ while True:
             f"cpu usage (%) : {cpu_usage_nean}%\n"
     file.write(data)
     sleep(1)
-    file.close()
+    
+file.close()
