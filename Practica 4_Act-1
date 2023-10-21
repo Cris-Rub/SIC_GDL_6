@@ -1,0 +1,30 @@
+from gpiozero import LED
+import psutil
+from time import sleep
+from datetime import datetime
+
+led_yellow = LED(20)
+led_red = LED(21)
+file = open("disk_usage_log.txt", "w")
+
+while True:
+    disk_usage = psutil.disk_usage('/')
+    disk_usage_percent = disk_usage.percent
+    print(f"Disk usage (%) : {disk_usage_percent}%")
+
+    if 60 > disk_usage_percent > 30:
+        led_yellow.on()
+        led_red.off()
+    elif disk_usage_percent >= 60:
+        led_yellow.off()
+        led_red.on()
+    else:
+        led_yellow.off()
+        led_red.off()
+
+    data = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} " \
+           f"Disk usage (%) : {disk_usage_percent}%\n"
+    file.write(data)
+    sleep(1)
+
+file.close()
