@@ -3,7 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.OUT)
-GPIO.setp(17,GPIO.IN)\
+GPIO.setp(17,GPIO.IN)
 try:
     stop = 0
     while True:
