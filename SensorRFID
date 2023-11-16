@@ -1,0 +1,25 @@
+def modo_escritura():
+    print("Modo de escritura activado")
+    while True:
+        entrada = input("Ingresa el texto a escribir ('exit' para salir del modo de escritura): ")
+        if entrada.lower() == 'exit':
+            break
+        # Aquí podrías agregar la lógica para guardar el texto en algún archivo o realizar acciones con los datos ingresados
+        print(f"Texto ingresado: {entrada}")
+
+def modo_lectura():
+    print("Modo de lectura activado")
+    # Aquí podrías agregar la lógica para leer algún archivo o acceder a información para la lectura
+
+opcion = ""
+while opcion != 'exit':
+    print("Ingresa 'E' para modo escritura, 'L' para modo lectura, o 'exit' para salir")
+    opcion = input("Opción: ")
+    if opcion == 'E' or opcion == 'e':
+        modo_escritura()
+    elif opcion == 'L' or opcion == 'l':
+        modo_lectura()
+    elif opcion == 'exit':
+        print("Saliendo del programa...")
+    else:
+        print("Opción no válida.")
